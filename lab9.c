@@ -75,7 +75,7 @@ void printRecords(struct RecordType pData[], int dataSz)
 // insert record into the hash table
 void insertRecord(struct HashType *hashTable, struct RecordType *record, int tableSize)
 {
-	int index = hash(record->id, tableSize);
+    int index = hash(record->id, tableSize);
     if (hashTable[index].ptr == NULL)
     {
         hashTable[index].ptr = record;
@@ -99,18 +99,18 @@ void displayRecordsInHash(struct HashType *hashTable, int tableSize)
 {
 	for (int i = 0; i < tableSize; i++)
 	{
-		printf("Index %d -> ", i);
-    	if (hashTable[i].ptr == NULL) 
-		{
-			printf("NULL\n");
-    	}
+            printf("Index %d -> ", i);
+            if (hashTable[i].ptr == NULL) 
+            {
+                printf("NULL\n");
+            }
 	
-		else 
-		{
-        	struct RecordType* current = hashTable[i].ptr;
+            else 
+            {
+            struct RecordType* current = hashTable[i].ptr;
             printf("%d, %c, %d", current->id, current->name, current->order);
             while (current->next != NULL) 
-			{
+            {
                 current = current->next;
                 printf(" -> %d, %c, %d", current->id, current->name, current->order);
             }
